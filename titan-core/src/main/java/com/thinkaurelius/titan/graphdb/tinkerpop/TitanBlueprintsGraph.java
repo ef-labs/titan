@@ -269,6 +269,16 @@ public abstract class TitanBlueprintsGraph implements TitanGraph {
         }
 
         @Override
+        protected void fireOnCommit() {
+
+        }
+
+        @Override
+        protected void fireOnRollback() {
+
+        }
+
+        @Override
         public TitanTransaction createThreadedTx() {
             return newTransaction();
         }
@@ -301,6 +311,21 @@ public abstract class TitanBlueprintsGraph implements TitanGraph {
             Preconditions.checkArgument(transactionConsumer instanceof CLOSE_BEHAVIOR,
                     "Only CLOSE_BEHAVIOR instances are accepted argument, got: %s", transactionConsumer);
             return super.onClose(transactionConsumer);
+        }
+
+        @Override
+        public void addTransactionListener(Consumer<Status> listener) {
+
+        }
+
+        @Override
+        public void removeTransactionListener(Consumer<Status> listener) {
+
+        }
+
+        @Override
+        public void clearTransactionListeners() {
+
         }
     }
 
